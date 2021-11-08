@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/FundamentalArithmeticOperations/FundamentalArithmeticOperations.iml" filepath="$PROJECT_DIR$/FundamentalArithmeticOperations/FundamentalArithmeticOperations.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Java.iml" filepath="$PROJECT_DIR$/.idea/Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MultiStepsTest/MultiStepsTest.iml" filepath="$PROJECT_DIR$/MultiStepsTest/MultiStepsTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OXQuiz/OXQuiz.iml" filepath="$PROJECT_DIR$/OXQuiz/OXQuiz.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemainderTest/RemainderTest.iml" filepath="$PROJECT_DIR$/RemainderTest/RemainderTest.iml" />
+    </modules>
+  </component>
+</project>
