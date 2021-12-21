@@ -18,16 +18,24 @@
 
 제한
 1 ≤ n ≤ 123,456
+
+에라토스테네스의 체 사용
  */
 
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+    public static final int MAX = 246912;
+
+    public static boolean[] sieve = new boolean[MAX+1];
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
+        makeSieve();
 
         while (true) {
             int n = sc.nextInt();
@@ -43,27 +51,25 @@ public class Main {
         int count = 0;
 
         for(int i = m + 1; i <= n; i++) {
-            boolean check = false;
-
-            if(i == 2) {
-                count++;
-                continue;
-            }
-            if(i % 2 == 0) {
-                continue;
-            }
-            for(int j = 3; j < i; j+= 2) {
-                if(i % j == 0) {
-                    check = true;
-                    break;
-                }
-            }
-
-            if(!check) {
+            if(sieve[i]) {
                 count++;
             }
         }
 
-        return  count;
+        return count;
+    }
+
+    public static void makeSieve() {
+        Arrays.fill(sieve, true);
+        sieve[0] = false;
+        sieve[1] = false;
+
+        for(int i = 2; i <= Math.sqrt(MAX); i++) {
+            if(sieve[i]) {
+                for(int j = i * i; j <= MAX; j += i) {
+                    sieve[j] = false;
+                }
+            }
+        }
     }
 }
