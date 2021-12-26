@@ -11,6 +11,8 @@
 
 출력
 각 테스트 케이스에 대해서 주어진 n의 골드바흐 파티션을 출력한다. 출력하는 소수는 작은 것부터 먼저 출력하며, 공백으로 구분한다.
+
+검사할 때, n / 2로 검사하고 소수 집합 전체에서 돌리는 것이 아님.
  */
 
 package com.company;
@@ -53,18 +55,16 @@ public class Main {
         }
     }
     public static int[] conjecture(int n) {
-        int temp = 0, first = 0 ,second = 0, sub = MAX;
-        for(int i = 0; i < primeNumber.size(); i++) {
-            temp = n - primeNumber.get(i);
-            if(primeNumber.contains(temp)) {
-                if(Math.abs(temp - primeNumber.get(i)) < sub) {
-                    first = primeNumber.get(i);
-                    second = temp;
-                    sub = temp - primeNumber.get(i);
-                }
+        int first = n / 2, seconds = n / 2;
+        int[] returns = new int[2];
+
+        while(true) {
+            if(primeNumber.contains(first) && primeNumber.contains(seconds)) {
+                returns[0] = first; returns[1] = seconds;
+                break;
             }
+            first--; seconds++;
         }
-        int[] returns = {first, second};
 
         return returns;
     }
