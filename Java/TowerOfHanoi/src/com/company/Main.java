@@ -13,6 +13,8 @@
 첫째 줄에 옮긴 횟수 K를 출력한다.
 
 두 번째 줄부터 수행 과정을 출력한다. 두 번째 줄부터 K개의 줄에 걸쳐 두 정수 A B를 빈칸을 사이에 두고 출력하는데, 이는 A번째 탑의 가장 위에 있는 원판을 B번째 탑의 가장 위로 옮긴다는 뜻이다.
+
+solution: println을 사용하면 시간 초과 발생, StringBuilder로 하나로 합친 다음 출력
  */
 
 package com.company;
@@ -39,9 +41,11 @@ public class Main {
             sb.append(start).append(" ").append(dest).append("\n");
             return ;
         }
-
+        //원반 n-1개를 A에서 B로 옮김
         hanoi(n - 1, start, dest, mid);
+        //A의 제일 하단의 원반을 C로 옮김
         sb.append(start).append(" ").append(dest).append("\n");
+        //원반 n-1개를 B에서 C로 옮김
         hanoi(n - 1, mid, start, dest);
     }
 }
