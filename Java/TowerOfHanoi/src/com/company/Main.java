@@ -28,18 +28,20 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int n = Integer.parseInt(br.readLine());
 
-        System.out.println((1 << n) - 1);
+        sb.append((1 << n) - 1).append("\n");
         hanoi(n, 1, 2, 3);
+
+        System.out.println(sb.toString());
     }
 
     public static void hanoi(int n, int start, int mid, int dest) {
         if (n == 1) {
-            System.out.println(start + " " + dest);
+            sb.append(start).append(" ").append(dest).append("\n");
             return ;
         }
 
         hanoi(n - 1, start, dest, mid);
-        System.out.println(start + " " + dest);
+        sb.append(start).append(" ").append(dest).append("\n");
         hanoi(n - 1, mid, start, dest);
     }
 }
