@@ -7,6 +7,8 @@ N개의 수가 주어졌을 때, 이를 오름차순으로 정렬하는 프로�
 
 출력
 첫째 줄부터 N개의 줄에 오름차순으로 정렬한 결과를 한 줄에 하나씩 출력한다.
+
+solution: merge sort 이용, quick sort인 Arrays.sort()는 시간초과
  */
 
 package com.company;
@@ -14,7 +16,8 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class Main {
 
@@ -22,15 +25,15 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int num = Integer.parseInt(br.readLine());
 
-        int[] arr = new int[num];
+        ArrayList<Integer> arr = new ArrayList<>();
         for(int i = 0; i < num; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
+            arr.add(Integer.parseInt(br.readLine())) ;
         }
 
-        Arrays.sort(arr);
+        Collections.sort(arr);
 
         for(int i = 0; i < num; i++) {
-            System.out.println(arr[i]);
+            System.out.println(arr.get(i));
         }
     }
 }
