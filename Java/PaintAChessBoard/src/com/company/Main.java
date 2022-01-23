@@ -16,6 +16,8 @@
 
 출력
 첫째 줄에 지민이가 다시 칠해야 하는 정사각형 개수의 최솟값을 출력한다.
+
+solution: 첫번째 칸의 색에 맞추는 것이 아닌 검은색으로 칠할 경우와 하얀색으로 칠할 경우 둘 다 따질 것.
  */
 
 package com.company;
@@ -46,33 +48,34 @@ public class Main {
     }
 
     public static int findPaintCount(int n, int m) {
-        int ans, min = 2500;
-        char select;
+        int firstBlack, firstWhite, loopMin, min = 2500;
 
-        for (int i = 0; i < n; i++) {
-            for (int j = 0; j < m; j++) {
-                if (i + 7 < arr.length && j + 7 < arr[0].length) {
-                    select = arr[i][j];
-                    ans = 0;
-                    for (int w = i; w < i + 8; w++) {
-                        for (int z = j; z < j + 8; z++) {
-                            if ((((w + z) - (i + j)) % 2) == 1) {
-                                if (select == arr[w][z]) {
-                                    ans++;
-                                }
+        for (int i = 0; i < n - 7; i++) {
+            for (int j = 0; j < m - 7; j++) {
+                firstBlack = 0;
+                firstWhite = 0;
+                for(int x = i; x < i + 8; x++) {
+                    for(int y = j; y < j + 8; y++) {
+                        if((x + y) % 2 == 0) {
+                            if(arr[x][y] == 'B') {
+                                firstWhite++;
                             }
                             else {
-                                if(select != arr[w][z]) {
-                                    ans++;
-                                }
+                                firstBlack++;
+                            }
+                        }
+                        else {
+                            if(arr[x][y] == 'W') {
+                                firstWhite++;
+                            }
+                            else {
+                                firstBlack++;
                             }
                         }
                     }
-
-                    if(ans <= min) {
-                        min = ans;
-                    }
                 }
+                loopMin = Math.min(firstBlack, firstWhite);
+                min = Math.min(min, loopMin);
             }
         }
 
