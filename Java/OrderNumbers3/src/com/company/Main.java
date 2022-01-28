@@ -38,11 +38,14 @@ public class Main {
         countValue();
         sumCounting();
         makeResult();
-        
+
+        StringBuilder sb = new StringBuilder();
 
         for (int j : result) {
-            System.out.println(j);
+            sb.append(j).append("\n");
         }
+
+        System.out.print(sb);
     }
 
     public static void countValue() {
