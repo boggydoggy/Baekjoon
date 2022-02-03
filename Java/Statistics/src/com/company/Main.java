@@ -48,8 +48,8 @@ public class Main {
 
     }
 
-    public static int findAverage(int[] num) {
-        float sum = 0;
+    public static long findAverage(int[] num) {
+        double sum = 0;
         for (int j : num) {
             sum += j;
         }
