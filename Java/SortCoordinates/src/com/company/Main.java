@@ -38,22 +38,26 @@ public class Main {
     }
 
     public static void sortCoordinates(int[][] arr) {
-        int[] temp;
+
         for(int i = 0; i < arr.length; i++) {
-            for(int j = i + 1; j < arr.length; j++) {
-                if(arr[i][0] > arr[j][0]) {
-                    temp = arr[i];
-                    arr[i] = arr[j];
-                    arr[j] = temp;
+            for(int j = 0; j < arr.length - i - 1; j++) {
+                if(arr[j][0] > arr[j+1][0]) {
+                    swap(arr, j, j+1);
                 }
-                else if(arr[i][0] == arr[j][0]) {
-                    if(arr[i][1] > arr[j][1]) {
-                        temp = arr[i];
-                        arr[i] = arr[j];
-                        arr[j] = temp;
+                else if(arr[j][0] == arr[j+1][0]) {
+                    if(arr[j][1] > arr[j+1][1]) {
+                        swap(arr, j, j+1);
                     }
                 }
             }
         }
+    }
+
+    public static void swap(int[][] a, int i, int j) {
+        int[] temp;
+
+        temp =  a[i];
+        a[i] = a[j];
+        a[j] = temp;
     }
 }
