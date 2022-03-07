@@ -7,6 +7,8 @@
 
 출력
 첫째 줄부터 N개의 줄에 점을 정렬한 결과를 출력한다.
+
+ans: arrays.sort() using lambda
  */
 
 package com.company;
@@ -14,6 +16,7 @@ package com.company;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -30,34 +33,22 @@ public class Main {
             arr[i][1] = Integer.parseInt(st.nextToken());
         }
 
-        sortCoordinates(arr);
-
-        for(int i = 0; i < arr.length; i++) {
-            System.out.println(arr[i][0] + " " + arr[i][1]);
-        }
-    }
-
-    public static void sortCoordinates(int[][] arr) {
-
-        for(int i = 0; i < arr.length; i++) {
-            for(int j = 0; j < arr.length - i - 1; j++) {
-                if(arr[j][0] > arr[j+1][0]) {
-                    swap(arr, j, j+1);
-                }
-                else if(arr[j][0] == arr[j+1][0]) {
-                    if(arr[j][1] > arr[j+1][1]) {
-                        swap(arr, j, j+1);
-                    }
-                }
+        Arrays.sort(arr, (e1, e2) -> {
+            if(e1[0] == e2[0]) {
+                return e1[1] - e2[1];
             }
+            else {
+                return e1[0] - e2[0];
+            }
+        });
+
+        StringBuilder sb = new StringBuilder();
+
+        for (int[] ints : arr) {
+            sb.append(ints[0]).append(" ").append(ints[1]).append("\n");
         }
+
+        System.out.print(sb);
     }
 
-    public static void swap(int[][] a, int i, int j) {
-        int[] temp;
-
-        temp =  a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
 }
