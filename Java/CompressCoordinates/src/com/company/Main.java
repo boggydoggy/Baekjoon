@@ -50,8 +50,11 @@ public class Main {
             }
         }
 
+        StringBuilder sb = new StringBuilder();
         for(int key: arr) {
-            System.out.print(map.get(key) + " ");
+            sb.append(map.get(key)).append(" ");
         }
+
+        System.out.println(sb);
     }
 }
